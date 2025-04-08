@@ -37,7 +37,11 @@ namespace _12A1Cs2_2425Proj4
                 var authors = book?.BookAuthors.Select(ba => ba.Author.Name).ToList();
 
             }
-            Book book1 = new Book
+
+//---------------------------------------------
+//              EXAMPLE CODE
+//---------------------------------------------
+/*            Book book1 = new Book
             {
                 Title = "Book Title",
                 Rating = 4.5f,
@@ -50,7 +54,7 @@ namespace _12A1Cs2_2425Proj4
             UpdateBook(book1);
 
             DeleteBook(book1);
-        }
+*/        }
 
         public void AddBook(Book newBook)
         {
