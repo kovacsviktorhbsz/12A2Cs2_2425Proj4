@@ -1,5 +1,7 @@
-﻿using System;
+﻿using _12A1Cs2_2425Proj4.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace _12A1Cs2_2425Proj4
 {
@@ -23,6 +26,31 @@ namespace _12A1Cs2_2425Proj4
         public MainWindow()
         {
             InitializeComponent();
+
+            // Initialize the database context
+            using(var context = new BookCatalogContext())
+            {
+                MessageBox.Show(String.Join("; ", context.Books));
+            }
         }
+
+
+        //---------- events ----------  
+        private void btn_Save_Click(object sender, RoutedEventArgs r)
+        {
+        }
+        private void btn_Duplicate_Click(object sender, RoutedEventArgs e)
+        {
+        }
+        private void btn_SaveToFile_Click(object sender, RoutedEventArgs e)
+        {
+        }
+        private void btn_Add_Click(object sender, RoutedEventArgs e)
+        {
+        }
+        private void btn_Delete_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
     }
 }
