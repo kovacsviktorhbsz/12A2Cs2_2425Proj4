@@ -1,5 +1,4 @@
-﻿using _12A1Cs2_2425Proj4.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -28,15 +27,6 @@ namespace _12A1Cs2_2425Proj4
             InitializeComponent();
 
             // Initialize the database context
-            using(var context = new BookCatalogContext())
-            {
-                var book = context.Books
-                    .Include("BookAuthors.Author")
-                    .FirstOrDefault(b => b.Id == 74);
-
-                var authors = book?.BookAuthors.Select(ba => ba.Author.Name).ToList();
-
-            }
 
 //---------------------------------------------
 //              EXAMPLE CODE

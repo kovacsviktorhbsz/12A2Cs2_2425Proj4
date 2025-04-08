@@ -14,6 +14,7 @@ namespace _12A1Cs2_2425Proj4
         public Book() 
         {
             this.BookAuthors = new HashSet<BookAuthor>();
+            this.BookGenres = new HashSet<BookGenre>();
         }
         public int Id { get; set; }
         public string Title { get; set; }
@@ -21,5 +22,6 @@ namespace _12A1Cs2_2425Proj4
         public string Edition { get; set; }
         public string Language { get; set; }
         public virtual ICollection<BookAuthor> BookAuthors { get; set; }  
+        public virtual ICollection<BookGenre> BookGenres { get; set; }  
     }
 }
