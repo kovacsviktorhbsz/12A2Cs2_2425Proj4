@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace _12A1Cs2_2425Proj4
 {
     [Table("author")]
-    internal class Author
+    public class Author
     {
         public Author() 
         {

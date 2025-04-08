@@ -22,19 +22,27 @@ namespace _12A1Cs2_2425Proj4
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
+            modelBuilder.Entity<BookAuthor>()
+                .Property(ba => ba.BookId)
+                .HasColumnName("book_id");
+
+            modelBuilder.Entity<BookAuthor>()
+                .Property(ba => ba.AuthorId)
+                .HasColumnName("author_id");
+
             // Composite keys
             modelBuilder.Entity<BookAuthor>()
-                .HasKey(ba => new { ba.book_id, ba.author_id });
+                .HasKey(ba => new { ba.BookId, ba.AuthorId });
 
             modelBuilder.Entity<BookAuthor>()
                 .HasRequired(ba => ba.Book)
                 .WithMany(b => b.BookAuthors)
-                .HasForeignKey(ba => ba.book_id);
+                .HasForeignKey(ba => ba.BookId);
 
             modelBuilder.Entity<BookAuthor>()
                 .HasRequired(ba => ba.Author)
                 .WithMany(a => a.BookAuthors)
-                .HasForeignKey(ba => ba.author_id);
+                .HasForeignKey(ba => ba.AuthorId);
 
             base.OnModelCreating(modelBuilder);
         }

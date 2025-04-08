@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace _12A1Cs2_2425Proj4
 {
     [Table("book")]
-    internal class Book
+    public  class Book
     {
         public Book() 
         {

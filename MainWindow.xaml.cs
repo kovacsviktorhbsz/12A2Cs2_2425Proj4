@@ -35,10 +35,84 @@ namespace _12A1Cs2_2425Proj4
                     .FirstOrDefault(b => b.Id == 74);
 
                 var authors = book?.BookAuthors.Select(ba => ba.Author.Name).ToList();
-                MessageBox.Show(String.Join("\n", authors));
+
             }
-            return;
+            Book book1 = new Book
+            {
+                Title = "Book Title",
+                Rating = 4.5f,
+                Edition = "1st Edition",
+                Language = "English",
+            };
+            AddBook(book1);
+
+            book1.Title = "WAZZAAAAAAAAAAAAAAAAAAAAP";
+            UpdateBook(book1);
+
+            DeleteBook(book1);
         }
+
+        public void AddBook(Book newBook)
+        {
+            // Can't add authors or genres (ain't no way I'm gonna figure this shi out)
+            using (var context = new BookCatalogContext())
+            {
+                context.Books.Add(newBook);
+                context.SaveChanges();
+            }
+        }
+
+        public List<Book> GetAllBooks()
+        {
+            using (var context = new BookCatalogContext())
+            {
+                return context.Books
+                              .Include("BookAuthors.Author")
+                              //.Include("BookGenres.Genre")
+                              .ToList();
+            }
+        }
+
+        public Book GetBookById(int id)
+        {
+            using (var context = new BookCatalogContext())
+            {
+                return context.Books
+                              .Include("BookAuthors.Author")
+                              //.Include("BookGenres.Genre")
+                              .FirstOrDefault(b => b.Id == id);
+            }
+        }
+
+        public void UpdateBook(Book book)
+        {
+            using (var context = new BookCatalogContext())
+            {
+                var existing = context.Books.Find(book.Id);
+                if (existing != null)
+                {
+                    existing.Title = book.Title;
+                    existing.Rating = book.Rating;
+                    existing.Edition = book.Edition;
+                    existing.Language = book.Language;
+                    context.SaveChanges();
+                }
+            }
+        }
+
+        public void DeleteBook(Book book)
+        {
+            using (var context = new BookCatalogContext())
+            {
+                var existing = context.Books.Find(book.Id);
+                if (book != null)
+                {
+                    context.Books.Remove(existing);
+                    context.SaveChanges();
+                }
+            }
+        }
+
 
 
         //---------- events ----------  
