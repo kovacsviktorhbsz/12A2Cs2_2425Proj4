@@ -24,17 +24,17 @@ namespace _12A1Cs2_2425Proj4
 
             // Composite keys
             modelBuilder.Entity<BookAuthor>()
-                .HasKey(ba => new { ba.BookId, ba.AuthorId });
+                .HasKey(ba => new { ba.book_id, ba.author_id });
 
             modelBuilder.Entity<BookAuthor>()
                 .HasRequired(ba => ba.Book)
                 .WithMany(b => b.BookAuthors)
-                .HasForeignKey(ba => ba.BookId);
+                .HasForeignKey(ba => ba.book_id);
 
             modelBuilder.Entity<BookAuthor>()
                 .HasRequired(ba => ba.Author)
                 .WithMany(a => a.BookAuthors)
-                .HasForeignKey(ba => ba.AuthorId);
+                .HasForeignKey(ba => ba.author_id);
 
             base.OnModelCreating(modelBuilder);
         }

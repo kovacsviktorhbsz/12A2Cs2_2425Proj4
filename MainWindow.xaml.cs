@@ -30,9 +30,12 @@ namespace _12A1Cs2_2425Proj4
             // Initialize the database context
             using(var context = new BookCatalogContext())
             {
-                var sql = context.Books.Include("BookAuthors.Author")
-                    .ToString();
-                MessageBox.Show(String.Join("\n", context.Books.Include("BookAuthors.Author").ToList()));
+                var book = context.Books
+                    .Include("BookAuthors.Author")
+                    .FirstOrDefault(b => b.Id == 74);
+
+                var authors = book?.BookAuthors.Select(ba => ba.Author.Name).ToList();
+                MessageBox.Show(String.Join("\n", authors));
             }
             return;
         }
