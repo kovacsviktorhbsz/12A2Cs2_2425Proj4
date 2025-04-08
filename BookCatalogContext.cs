@@ -10,6 +10,6 @@ namespace _12A1Cs2_2425Proj4
 {
     internal class BookCatalogContext : DbContext
     {
-        public DbSet<Book> Books { get; set; }
+        public DbSet<Book> book { get; set; }
     }
 }

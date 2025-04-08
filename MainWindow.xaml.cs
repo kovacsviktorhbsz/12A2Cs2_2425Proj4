@@ -30,8 +30,9 @@ namespace _12A1Cs2_2425Proj4
             // Initialize the database context
             using(var context = new BookCatalogContext())
             {
-                MessageBox.Show(String.Join("; ", context.Books));
+                MessageBox.Show(String.Join("\n", context.book.Select(x => x.Title)));
             }
+            return;
         }
 
 
