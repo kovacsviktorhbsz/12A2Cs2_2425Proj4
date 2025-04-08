@@ -129,7 +129,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Author.cs" />
+    <Compile Include="Author.cs" />
     <Compile Include="Book.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
