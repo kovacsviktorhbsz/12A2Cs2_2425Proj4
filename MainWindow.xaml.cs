@@ -26,6 +26,27 @@ namespace _12A1Cs2_2425Proj4
         {
             InitializeComponent();
 
+            //listbox 
+            var books = GetAllBooks();
+            foreach(var book in books)
+            {
+                listbox.Items.Add(book.Title);
+            }
+            
+            //details
+            foreach(var book in books)
+            {
+                if(book.Title == listbox.SelectedItem)
+                {
+                    tbTitle.Text = book.Title;
+                    lbAuthors.Items.Add(book.BookAuthors);
+                    tbRating.Text = book.Rating.ToString();
+                    tbEdition.Text = book.Edition;
+                    tbLanguage.Text = book.Language;
+                }
+            }
+
+
             // Initialize the database context
 
 //---------------------------------------------

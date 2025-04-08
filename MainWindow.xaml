@@ -56,7 +56,7 @@
                 </Grid.ColumnDefinitions>
                 
                 <!--first column-->
-                <TextBlock x:Name="tbTitle" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="title_"/>
+                <TextBlock x:Name="tbTitle" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text=""/>
                 <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="20" Text="Authors"/>
                 <ListBox x:Name="lbAuthors" Grid.Row="1" Grid.Column="0" Margin="30" HorizontalAlignment="Left"  VerticalAlignment="Center"/>
                 
@@ -70,19 +70,16 @@
                         <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
-                        <RowDefinition/>
                     </Grid.RowDefinitions>
                     
-                    <!--rating, pages, publisher, publish date-->
+                    <!--rating, edition, language-->
                     <TextBlock Grid.Row="0" Grid.Column="0" Text="Rating" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20"/>
-                    <TextBlock Grid.Row="1" Grid.Column="0" Text="" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20"/>
-                    <TextBlock Grid.Row="2" Grid.Column="0" Text="" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20"/>
-                    <TextBlock Grid.Row="3" Grid.Column="0" Text="" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Edition" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Language" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20"/>
 
                     <TextBox x:Name="tbRating" Grid.Row="0" Grid.Column="1" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20"/>
-                    <TextBox x:Name="tbPages" Grid.Row="1" Grid.Column="1" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20"/>
-                    <TextBox x:Name="tbPublisher" Grid.Row="2" Grid.Column="1" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20"/>
-                    <TextBox x:Name="tbPublishDate" Grid.Row="3" Grid.Column="1" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20"/>
+                    <TextBox x:Name="tbEdition" Grid.Row="1" Grid.Column="1" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20"/>
+                    <TextBox x:Name="tbLanguage" Grid.Row="2" Grid.Column="1" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20"/>
 
 
                 </Grid>
