@@ -56,6 +56,8 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock x:Name="tbTitle" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="title_"/>
+                <TextBlock/>
+                <ListBox x:Name="lbAuthors" Grid.Row="1" Grid.Column="0" Margin="30" HorizontalAlignment="Left"  VerticalAlignment="Center"/>
 
             </Grid>
 
