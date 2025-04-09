@@ -9,7 +9,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace _12A1Cs2_2425Proj4
 {
-    internal class BookCatalogContext : DbContext
+    public class BookCatalogContext : DbContext
     {
         public BookCatalogContext() : base("name=BookCatalogContext")
         {

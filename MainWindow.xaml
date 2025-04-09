@@ -24,7 +24,7 @@
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
             <Label  Grid.Row="0" Content="Könyvek" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-            <ListBox x:Name="listbox" Grid.Row="1"  Margin="10"/>
+            <ListBox x:Name="lbList" Grid.Row="1"  Margin="10" SelectionChanged="listbox_SelectionChanged" DisplayMemberPath="Title"/>
             <Label x:Name="lbStatistics" Grid.Row="2" HorizontalAlignment="Center" Content="Könyvek darabszáma: "></Label>
             <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>

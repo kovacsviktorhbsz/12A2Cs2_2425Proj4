@@ -22,50 +22,37 @@ namespace _12A1Cs2_2425Proj4
     /// </summary>
     public partial class MainWindow : Window
     {
+        public BookCatalogContext ctx = new BookCatalogContext();
         public MainWindow()
         {
             InitializeComponent();
 
             //listbox 
-            var books = GetAllBooks();
-            foreach(var book in books)
-            {
-                listbox.Items.Add(book.Title);
-            }
-            
+            lbList.ItemsSource = GetAllBooks();
+
             //details
-            foreach(var book in books)
-            {
-                if(book.Title == listbox.SelectedItem)
-                {
-                    tbTitle.Text = book.Title;
-                    lbAuthors.Items.Add(book.BookAuthors);
-                    tbRating.Text = book.Rating.ToString();
-                    tbEdition.Text = book.Edition;
-                    tbLanguage.Text = book.Language;
-                }
-            }
 
 
             // Initialize the database context
 
-//---------------------------------------------
-//              EXAMPLE CODE
-//---------------------------------------------
-/*            Book book1 = new Book
-            {
-                Title = "Book Title",
-                Rating = 4.5f,
-                Edition = "1st Edition",
-                Language = "English",
-            };
-            AddBook(book1);
+            //---------------------------------------------
+            //              EXAMPLE CODE
+            //---------------------------------------------
+            /*            Book book1 = new Book
+                        {
+                            Title = "Book Title",
+                            Rating = 4.5f,
+                            Edition = "1st Edition",
+                            Language = "English",
+                        };
+                        AddBook(book1);
 
-            book1.Title = "WAZZAAAAAAAAAAAAAAAAAAAAP";
-            UpdateBook(book1);
+                        book1.Title = "WAZZAAAAAAAAAAAAAAAAAAAAP";
+                        UpdateBook(book1);
 
-            DeleteBook(book1);
-*/        }
+                        DeleteBook(book1);
+            */
+        }
 
         public void AddBook(Book newBook)
         {
@@ -94,7 +81,7 @@ namespace _12A1Cs2_2425Proj4
             {
                 return context.Books
                               .Include("BookAuthors.Author")
-                              //.Include("BookGenres.Genre")
+                              .Include("BookGenres.Genre")
                               .FirstOrDefault(b => b.Id == id);
             }
         }
@@ -147,5 +134,15 @@ namespace _12A1Cs2_2425Proj4
         {
         }
 
+        private void listbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var book = (Book)((ListBox)sender).SelectedItem;
+            tbTitle.Text = book.Title;
+            lbAuthors.Items.Add(book.BookAuthors);
+            tbRating.Text = book.Rating.ToString();
+            tbEdition.Text = book.Edition;
+            tbLanguage.Text = book.Language;
+
+        }
     }
 }
